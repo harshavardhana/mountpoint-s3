@@ -8,14 +8,13 @@ Mountpoint for Amazon S3 is a simple, high-throughput file client for [mounting 
 Mountpoint for Amazon S3 is optimized for applications that need high read throughput to large objects, potentially from many clients at once, and to write new objects sequentially from a single client at a time. This means it's a great fit for applications that use a file interface to:
 * read large objects from S3, potentially from many instances concurrently, without downloading them to local storage first
 * access only some S3 objects out of a larger data set, but can't predict which objects in advance
-* upload their output to S3 directly, or upload files from local storage with tools like `cp`
+* upload their output to S3 directly or upload files from local storage with tools like `cp`
 
-but probably not the right fit for applications that:
+But probably not the right fit for applications that:
 * use file operations that S3 doesn't natively support, like directory renaming or symlinks
-* make edits to existing files (don't work on your Git repository or run `vim` in Mountpoint 😄)
+* make edits to existing files (don't work on your Git repository or run `vim` on Mountpoint 😄)
 
-Mountpoint for Amazon S3 does not implement all the features of a POSIX file system, and there are some differences that may affect compatibility with your application. See [Mountpoint file system behavior](doc/SEMANTICS.md) for a detailed description of Mountpoint for Amazon S3's behavior and POSIX support and how they could affect your application.
-To troubleshoot file operations that may not be supported by Mountpoint, see the [troubleshooting documentation](doc/TROUBLESHOOTING.md).
+Mountpoint for Amazon S3 does not implement all the features of a POSIX file system, and there are some differences that may affect compatibility with your application. See [Mountpoint file system behavior](doc/SEMANTICS.md) for a detailed description of Mountpoint for Amazon S3's behavior and POSIX support and how they could affect your application. To troubleshoot file operations that Mountpoint may not support, see the [troubleshooting documentation](doc/TROUBLESHOOTING.md).
 
 ## Current status
 
@@ -68,7 +67,7 @@ When you're finished accessing your bucket, you can unmount it (you might need `
 
 ### Compatibility with other storage services
 
-Mountpoint for Amazon S3 is designed for high-performance access to the Amazon S3 service. While it may be functional against other storage services that use S3-like APIs, we aren't able to provide support for those use cases, and they may inadvertently break when we make changes to better support Amazon S3. We welcome contributions of minor compatibility fixes or performance improvements for these services if the changes can be tested against Amazon S3.
+Mountpoint for Amazon S3 is designed to provide high-performance access to the Amazon S3 service. While it may be functional against other storage services that use S3-like APIs, we aren't able to provide support for those use cases, and they may inadvertently break when we make changes to better support Amazon S3. We welcome contributions of minor compatibility fixes or performance improvements for these services if the changes can be tested against Amazon S3.
 
 ## Contributing
 
@@ -79,7 +78,7 @@ For performance issues, see [BENCHMARKING.md](doc/BENCHMARKING.md) for documenta
 
 ### Security
 
-If you discover a potential security issue in this project we ask that you notify AWS Security via our [vulnerability reporting page](http://aws.amazon.com/security/vulnerability-reporting/). Please do **not** create a public GitHub issue.
+If you discover a potential security issue in this project, we ask that you notify AWS Security via our [vulnerability reporting page](http://aws.amazon.com/security/vulnerability-reporting/). Please do **not** create a public GitHub issue.
 
 ### Code of conduct
 
@@ -87,7 +86,7 @@ This project has adopted the [Amazon Open Source Code of Conduct](https://aws.gi
 
 ## License
 
-This project is licensed under the Apache-2.0 License. It builds on a number of other awesome projects with open source licenses, primarily:
+This project is licensed under the Apache-2.0 License. It builds on a number of other awesome projects with open-source licenses, primarily:
 * The [fuser](https://github.com/cberner/fuser) bindings for FUSE (MIT license)
 * The [AWS Common Runtime](https://docs.aws.amazon.com/sdkref/latest/guide/common-runtime.html) for interacting with S3 (Apache 2.0 license)
 
